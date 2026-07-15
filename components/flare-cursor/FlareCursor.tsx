@@ -3,34 +3,37 @@ import {useState, useRef, useEffect} from 'react';
 
 
 function FlareCursor() {
-    const cursorRef = useRef(null);
-    const ringRef = useRef(null);
+    const cursorRef = useRef<HTMLDivElement | null>(null);
+    const ringRef = useRef<HTMLDivElement | null>(null);
     const cursor = useRef({x: 0, y: 0});
     const ring = useRef({x: 0, y: 0});
+    const isVisibleRef = useRef(false);
     const [isVisible, setIsVisible] = useState(false);
 
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: MouseEvent) => {
         cursor.current.x = e.clientX;
         cursor.current.y = e.clientY;
 
         if(cursorRef.current) {
             cursorRef.current.style.transform = `translate(${cursor.current.x}px, ${cursor.current.y}px) translate(-50%, -50%)`;
         }
-        const target = e.target;
-        setIsVisible(window.getComputedStyle(target).cursor === 'pointer');
+        const target = e.target as HTMLElement;
+        const visible = getComputedStyle(target).cursor === 'pointer';
+        setIsVisible(visible);
+        isVisibleRef.current = visible;
     }
 
 
         window.addEventListener('mousemove', handleMouseMove);
 
- let animationFrame;
+ let animationFrame: number;
 
     const animate = () => {
       // The smaller this number, the more lag.
       const speed = 0.15;
-      const scale = isVisible ? 10 : 1;
+      const scale = isVisibleRef ? 10 : 1;
 
       ring.current.x += (cursor.current.x - ring.current.x) * speed;
       ring.current.y += (cursor.current.y - ring.current.y) * speed;
