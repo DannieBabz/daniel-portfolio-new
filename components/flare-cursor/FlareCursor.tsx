@@ -33,7 +33,7 @@ function FlareCursor() {
     const animate = () => {
       // The smaller this number, the more lag.
       const speed = 0.15;
-      const scale = isVisibleRef ? 10 : 1;
+      const scale = isVisibleRef ? 2 : 1;
 
       ring.current.x += (cursor.current.x - ring.current.x) * speed;
       ring.current.y += (cursor.current.y - ring.current.y) * speed;
@@ -53,7 +53,7 @@ function FlareCursor() {
         }
     }, []);
 
-    const flareSize = isVisible ? 5 : 10;
+    const flareSize = isVisible ? 2 : 6;
 
     return (
  <>
@@ -67,7 +67,7 @@ function FlareCursor() {
       <div
         ref={ringRef}
         className={`fixed top-0 left-0 rounded-full border border-accent mix-blend-screen pointer-events-none z-50 transition-[width,height] duration-300 ease-out`}
-        style={{ width: `${flareSize * 3}px`, height: `${flareSize * 3}px` }}
+        style={{ width: `${flareSize * 2}px`, height: `${flareSize * 2}px` }}
       />
     </>    
     )
