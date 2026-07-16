@@ -21,7 +21,31 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "Daniel Babatunde | Portfolio",
-  description: "Daniel Babatunde's Portfolio",
+  description: "Frontend developer building modern web experiences with React, Next.js and TypeScript.",
+
+  openGraph: {
+    title: "Daniel Babatunde",
+    description:
+      "Frontend developer building modern web experiences.",
+    url: "https://yourdomain.com",
+    siteName: "Daniel Babatunde",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Daniel Babatunde",
+    description:
+      "Frontend developer building modern web experiences.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({

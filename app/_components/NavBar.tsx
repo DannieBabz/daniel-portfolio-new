@@ -18,11 +18,11 @@ export default function NavBar() {
     <>
       <nav className="hidden w-full items-center py-6 bg-[rgba(12,12,14,0.85)] border-b fixed text top-0 right-0 left-0 z-40 backdrop-blur-xs lg:flex">
         <div className=" flex w-full mx-auto justify-around items-center">
-          <div>
+          <Link href="/" className="flex items-center gap-2">
             <h1 className="text-muted hover:text-accent">
               <span className="text-accent">//</span>daniel.dev
             </h1>
-          </div>
+          </Link>
           <div>
             <ul
               className="flex gap-5">
@@ -30,7 +30,7 @@ export default function NavBar() {
                 <motion.li key={link.label}
                 whileHover={{ scale: 1.2, skewY: 2, skewX: 2 }}
                 whileTap={{ scale: 0.95 }}
-                 className="text-muted hover:text-accent">
+                 className="text-muted p-4 hover:text-accent">
                   <Link href={link.href}>{link.label}</Link>
                 </motion.li>
               ))}
@@ -53,9 +53,11 @@ export default function NavBar() {
       <nav className="w-screen items-center justify-evenly py-6 bg-[rgba(12,12,14,0.85)] border-b fixed text top-0 right-0 left-0 z-50 backdrop-blur-xs lg:hidden">
         <div className="container flex justify-between items-center px-10">
           <div>
-            <h1 className="text-muted hover:text-accent">
-              <span className="text-accent">//</span>daniel.dev
-            </h1>
+            <Link href="/" className="flex items-center gap-2">
+              <h1 className="text-muted hover:text-accent">
+                <span className="text-accent">//</span>daniel.dev
+              </h1>
+            </Link>
           </div>
           <Sheet>
             <SheetTrigger className="text-muted hover:text-accent lg:hidden">

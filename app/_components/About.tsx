@@ -23,7 +23,7 @@ const CardItems = [
 
 const About = () => {
   return (
-    <section className="mx-auto max-w-full justify-evenly h-fit lg:h-screen py-10 flex items-center bg-background border-t border-b">
+    <section id="about" className="mx-auto max-w-full justify-evenly h-fit lg:h-screen py-10 flex items-center bg-background border-t border-b">
     <div className="px-5 h-fit flex max-md:flex-col w-3/4 mx-auto justify-center gap-16 lg:p-0">
         <div className="max-w-full">
           <motion.div 

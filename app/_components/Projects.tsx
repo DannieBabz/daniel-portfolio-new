@@ -1,6 +1,7 @@
 import Image from "next/image";
 import * as motion from "motion/react-client";
 import { containerVariants, fadeUp } from "@/lib/animation";
+import Link from "next/link";
 
 const CardItems = [
   {
@@ -8,6 +9,7 @@ const CardItems = [
     title: "Weather App",
     label: "A weather app with real-time updates and a clean interface.",
     image: "/project1.png",
+    link: "https://weather-app-cyan-chi-46.vercel.app/",
     languages: ["React", "TailwindCSS", "OpenWeather API"],
   },
 ];
@@ -50,6 +52,7 @@ const Projects = () => {
           viewport={{ once: false }}
           className="my-8"
         >
+
           {CardItems.map((item) => (
             <motion.div
               key={item.id}
@@ -61,12 +64,13 @@ const Projects = () => {
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="group relative overflow-hidden bg-background border border-transparent"
             >
+              <Link href={item.link} target="_blank">
               <div
                 className="
                   absolute
                   top-0
                   left-0
-                  h-[2px]
+                  h-0.5
                   w-full
                   origin-left
                   scale-x-0
@@ -124,6 +128,7 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

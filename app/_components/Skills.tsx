@@ -19,7 +19,7 @@ const SKILLS = [
 
 const Skills = () => {
   return (
-    <section className="mx-auto max-w-full justify-center h-fit lg:h-screen flex items-center py-20 bg-background border-t border-b">
+    <section id="skills" className="mx-auto max-w-full justify-center h-fit lg:h-screen flex items-center py-20 bg-background border-t border-b">
       <div className="px-5 h-fit flex w-3/4 flex-col max-w-5xl mx-auto lg:p-0 lg:justify-center">
         <motion.div
           variants={containerVariants}
